@@ -4,7 +4,10 @@ function solution(hp) {
 
   for (let i = 0; i < antPower.length; i++) {
     if (hp == 0) break
+    console.log("antPower[i]: ", antPower[i])
+
     antCount += Math.floor(hp / antPower[i])
+
     hp -= Math.floor(hp / antPower[i]) * antPower[i]
   }
 
