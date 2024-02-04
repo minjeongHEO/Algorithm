@@ -1,5 +1,4 @@
 function solution(arr, k) {
-
   var answer = []
 
   if (k % 2 == 0) {
@@ -13,3 +12,5 @@ function solution(arr, k) {
   }
   return answer
 }
+
+// const solution = (arr, k) => arr.map(v => (k % 2 ? v * k : v + k))
