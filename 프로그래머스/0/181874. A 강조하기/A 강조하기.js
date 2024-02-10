@@ -6,3 +6,6 @@ function solution(myString) {
 
   return change.join("")
 }
+
+// 다른 풀이
+// const solution = s => s.toLowerCase().replaceAll("a", "A")
