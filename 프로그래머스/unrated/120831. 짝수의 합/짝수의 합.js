@@ -1,15 +1,18 @@
 function solution(n) {
-  var answer = 0;
+  // const arr = Array.from({ length: n }).map((_, idx) => {
+  //   return idx + 1;
+  // });
+  // 🔽
+  const arr = Array.from({ length: n }, (_, idx) => idx + 1);
 
-  answer = new Array({ length: n })
-    .map((_, idx) => {
-      return idx + 1;
-    })
-    .reduce((acc, cur) => {
-      if (cur % 2 == 0) acc + cur;
-    }, 0);
+  const result = arr.reduce((acc, cur) => {
+    if (cur % 2 === 0) {
+      return acc + cur;
+    } else {
+      // 짝수가 아닌 경우 누적값을 그대로 반환
+      return acc;
+    }
+  }, 0);
 
-  return answer;
+  return result;
 }
-
-solution(10);
