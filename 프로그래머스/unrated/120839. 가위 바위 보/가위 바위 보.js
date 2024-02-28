@@ -1,17 +1,30 @@
-function solution(rsp) {
-  // 가위는 2
-  // 바위는 0
-  // 보는 5
-  let answer = ""
-  const solution = new Map()
-  solution.set({ 2: "0" })
-  solution.set({ 0: "5" })
-  solution.set({ 5: "2" })
-  rsp.split("").forEach(e => {
-    answer += solution.get(e)
-  })
+// function solution(rsp) {
+//   // 가위는 2
+//   // 바위는 0
+//   // 보는 5
+//   let answer = ""
+//   const solution = new Map()
+//   solution.set("2", "0")
+//   solution.set("0", "5")
+//   solution.set("5", "2")
 
-  return answer
+//   rsp.split("").forEach(e => {
+//     answer += solution.get(e)
+//   })
+
+//   return answer
+// }
+
+// reduce 사용하기
+function solution(rsp) {
+  const solution = new Map()
+  solution.set("2", "0")
+  solution.set("0", "5")
+  solution.set("5", "2")
+
+  return rsp.split("").reduce((acc, cur) => {
+    return acc + solution.get(cur)
+  }, "")
 }
 
 // // Map말고 Obj로 사용하기
