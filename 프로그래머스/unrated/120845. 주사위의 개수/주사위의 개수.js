@@ -1,10 +1,7 @@
 function solution(box, n) {
-  var answer = 1
-  box.forEach(e => {
-    answer *= Math.floor(e / n)
-  })
-
-  return answer
+  return box.reduce((acc, cur) => {
+    return acc * Math.floor(cur / n)
+  }, 1)
 }
 
 // 다른 풀이
