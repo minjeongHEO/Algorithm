@@ -1,13 +1,8 @@
-function solution(n) {
-  var result = [];
-  let x = n;
+// 재귀 함수를 이용하여 풀기
+function solution(x, arr = []) {
+  arr.push(x);
 
-  while (x !== 1) {
-    result.push(x);
-    if (x % 2 === 0) x /= 2;
-    else x = 3 * x + 1;
-  }
-  result.push(1);
-
-  return result;
+  if (x === 1) return arr;
+  if (x % 2 === 0) return solution(x / 2, arr);
+  return solution(3 * x + 1, arr);
 }
