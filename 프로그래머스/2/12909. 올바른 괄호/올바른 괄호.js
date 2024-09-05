@@ -1,14 +1,10 @@
 function solution(s) {
-    let count = 0;
-    
-    for(let i=0; i<s.length; i++){
-        (s[i] === '(') ? count += 1 : count -= 1;
-        if(count < 0) {
-            break;
-            //return false
-            
+    let cum = 0;
+    for (let paren of s) {
+        cum += paren === "(" ? 1 : -1;
+        if (cum < 0) {
+            return false;
         }
     }
-    
-    return count === 0
+    return cum === 0 ? true : false;
 }
