@@ -1,34 +1,17 @@
+// function solution(strings, n) {
+//     return strings.sort((a, b) => {
+//         if (a[n] === b[n]) {
+//             // n번째 문자가 같으면 사전순으로 비교
+//             return a > b ? 1 : -1;
+//         } else {
+//             // n번째 문자를 기준으로 비교
+//             return a[n] > b[n] ? 1 : -1;
+//         }
+//     });
+// }
 function solution(strings, n) {
-    let answer = [];
-    let newMap = new Map();
-
-    strings.forEach(e => {
-        if (newMap.has(e[n])) {
-            newMap.set(e[n], [...newMap.get(e[n]), e]);
-        } else {
-            newMap.set(e[n], [e]);
-        }
+    return strings.sort((a, b) => {
+        if (a[n] === b[n])  return a.localeCompare(b); // 같으면 사전순 정렬
+        return a[n].localeCompare(b[n]); // n번째 문자를 기준으로 정렬
     });
-
-    let sortedAsc = new Map([...newMap].sort());
-
-    for (const [k, v] of sortedAsc.entries()) {
-        if (v.length <= 1) continue;
-
-        const newValues = v.sort();
-        sortedAsc.set(k, newValues);
-    }
-
-    for (const [k, v] of sortedAsc.entries()) {
-        if (v.length <= 1) continue;
-
-        const newValues = v.sort();
-        sortedAsc.set(k, newValues);
-    }
-
-    for (const v of sortedAsc.values()) {
-        answer = [...answer, ...v];
-    }
-
-    return answer;
 }
