@@ -22,21 +22,26 @@ function solution(dirs) {
     const 이동 = A[B.indexOf(cur)];
     const 다음위치 = [현재위치[0] + 이동[0], 현재위치[1] + 이동[1]];
 
-    const 길 = JSON.stringify(
+    // const 길 = [
+    //   [현재위치[0], 현재위치[1]],
+    //   [다음위치[0], 다음위치[1]],
+    // ]
+
+    길 = JSON.stringify(
       [
         [현재위치[0], 현재위치[1]],
         [다음위치[0], 다음위치[1]],
       ].sort()
     );
 
-    if (!pathSet.has(길)) {
-      pathSet.add(길);
-      acc++;
-    }
-
     현재위치 = 다음위치;
-    return acc;
+
+    if (pathSet.has(길)) {
+      return acc;
+    }
+    pathSet.add(길);
+    return acc + 1;
   }, 0);
 }
 
-// console.log(solution("ULURRDLLU"));
+// console.log(solution("UUDD"));
