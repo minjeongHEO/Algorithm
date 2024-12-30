@@ -1,10 +1,13 @@
 function solution(s) {
-    let cum = 0;
-    for (let paren of s) {
-        cum += paren === "(" ? 1 : -1;
-        if (cum < 0) {
-            return false;
-        }
-    }
-    return cum === 0 ? true : false;
+  const result = [];
+  const arr = s.split("");
+
+  for (const e of arr) {
+    if (!result.length && e === ")") return false;
+    e === "(" ? result.push(e) : result.pop();
+  }
+
+  return result.length === 0;
 }
+
+
