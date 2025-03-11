@@ -26,6 +26,8 @@ function solution(m, musicinfos) {
       },
       ""
     );
+    // const repeatCount = Math.ceil(playTime / replacedMelody.length);
+    // const playedMelody = replacedMelody.repeat(repeatCount).slice(0, playTime);
 
     // 5. 늘리던 자르던 한 music을 m과 이제 비교한다.
     if (playedMelody.includes(targetMelody)) {
